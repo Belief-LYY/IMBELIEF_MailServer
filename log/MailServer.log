@@ -1,0 +1,43 @@
+2018-05-25 17:02:50.851 [Thread-4] INFO  MailServer - S: 220 www.imbelief.com Esmtp Belief Mail Server
+
+2018-05-25 17:02:50.892 [Thread-6] INFO  MailServer - R: HELO 127.0.0.1
+2018-05-25 17:02:50.893 [Thread-6] INFO  MailServer - S: 250 Ok www.imbelief.com
+
+2018-05-25 17:02:50.895 [Thread-6] INFO  MailServer - R: STARTTLS 127.0.0.1
+2018-05-25 17:02:50.895 [Thread-6] INFO  MailServer - S: 502 Error: command not implemented
+
+2018-05-25 17:02:50.897 [Thread-6] INFO  MailServer - R: AUTH LOGIN
+2018-05-25 17:02:50.897 [Thread-6] INFO  MailServer - S: 334 VXNlcm5hbWU6
+
+2018-05-25 17:02:51.101 [Thread-6] INFO  MailServer - R: Mjk2MjkzNzYwQGltYmVsaWVmLmNvbS5jbg==
+2018-05-25 17:02:51.101 [Thread-6] INFO  MailServer - S: 334 VXNlcm5hbWU6
+
+2018-05-25 17:02:51.102 [Thread-6] INFO  MailServer - R: dnp1amF1YmtzbWh2Ymhj
+2018-05-25 17:02:51.107 [Thread-6] INFO  MailServer - S: 235 Authentication successful
+
+2018-05-25 17:02:51.111 [Thread-6] INFO  MailServer - R: MAIL FROM:<296293760@imbelief.com.cn>
+2018-05-25 17:02:51.112 [Thread-6] INFO  MailServer - S: 250 Ok www.imbelief.com
+
+2018-05-25 17:02:51.113 [Thread-6] INFO  MailServer - R: RCPT TO:<891079011@qq.com>
+2018-05-25 17:02:51.113 [Thread-6] INFO  MailServer - S: 250 Ok www.imbelief.com
+
+2018-05-25 17:02:51.127 [Thread-6] INFO  MailServer - R: RCPT TO:<296293760@imbelief.com.cn>
+2018-05-25 17:02:51.127 [Thread-6] INFO  MailServer - S: 250 Ok www.imbelief.com
+
+2018-05-25 17:02:51.129 [Thread-6] INFO  MailServer - R: DATA
+2018-05-25 17:02:51.129 [Thread-6] INFO  MailServer - S: 354 End data with <CR><LF>.<CR><LF>
+
+2018-05-25 17:02:51.401 [Thread-6] INFO  MailServer - R: From:<296293760@imbelief.com.cn>
+2018-05-25 17:02:51.402 [Thread-6] INFO  MailServer - R: To:<891079011@qq.com>
+2018-05-25 17:02:51.402 [Thread-6] INFO  MailServer - R: To:<296293760@imbelief.com.cn>
+2018-05-25 17:02:51.402 [Thread-6] INFO  MailServer - R: Subject:Just a Test
+2018-05-25 17:02:51.402 [Thread-6] INFO  MailServer - R: Date:Fri May 25 17:02:51 GMT+08:00 2018
+2018-05-25 17:02:51.402 [Thread-6] INFO  MailServer - R: Content-Type:text/plain;charset="GB2312"
+2018-05-25 17:02:51.402 [Thread-6] INFO  MailServer - R: 
+2018-05-25 17:02:51.402 [Thread-6] INFO  MailServer - R: This email from command line. Cross the GFW, we can reach every corner in the world !
+2018-05-25 17:02:51.402 [Thread-6] INFO  MailServer - R: .
+2018-05-25 17:02:51.910 [Thread-6] INFO  MailServer - S: 250 Ok www.imbelief.com
+
+2018-05-25 17:02:51.912 [Thread-6] INFO  MailServer - R: QUIT
+2018-05-25 17:02:51.912 [Thread-6] INFO  MailServer - S: 221 Bye
+

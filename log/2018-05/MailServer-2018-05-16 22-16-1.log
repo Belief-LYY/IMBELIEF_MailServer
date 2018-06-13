@@ -1,0 +1,9 @@
+2018-05-16 22:16:05.431 [Thread-2] INFO  MailServer - R: helo smtp
+2018-05-16 22:16:05.509 [Thread-2] INFO  MailServer - S: 250 Ok www.imbelief.com
+
+2018-05-16 22:16:16.355 [Thread-2] INFO  MailServer - R: auth login
+2018-05-16 22:16:16.355 [Thread-2] INFO  MailServer - S: 334 VXNlcm5hbWU6
+
+2018-05-16 22:16:22.810 [Thread-2] INFO  MailServer - R: 296293760
+2018-05-16 22:16:22.854 [Thread-2] INFO  MailServer - S: 334 VXNlcm5hbWU6
+

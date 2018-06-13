@@ -1,0 +1,5 @@
+2018-05-24 10:38:00.303 [Thread-2] INFO  MailServer - S: 235 Authentication successful
+
+2018-05-24 10:38:00.338 [Thread-2] INFO  MailServer - S: 502 Error: command not implemented
+2
+2018-05-24 10:38:00.338 [Thread-2] INFO  MailServer - R: LIST

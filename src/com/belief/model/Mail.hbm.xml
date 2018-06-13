@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.belief.model.Mail" table="mail_entity">
+
+		<id name="mail_id" column="mail_id"></id>
+
+		<property name="mail_address" column="mail_address"></property>
+		<property name="mail_receive" column="mail_receive"></property>
+		<property name="send_time" column="send_time"></property>
+		<property name="mail_subject" column="mail_subject"></property>
+		<property name="mail_content" column="mail_content"></property>
+		<property name="state_send" column="state_send"></property>
+		<property name="state_read" column="state_read"></property>
+		<property name="content_encoding" column="content_encoding"></property>
+		<property name="protocol_version" column="protocol_version"></property>
+		<property name="timing" column="timing"></property>
+
+	</class>
+</hibernate-mapping>

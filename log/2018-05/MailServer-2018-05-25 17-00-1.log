@@ -1,0 +1,15 @@
+2018-05-25 17:00:27.108 [Thread-5] INFO  MailServer - R: vzujaubksmhvbhc
+2018-05-25 17:00:27.126 [Thread-5] INFO  MailServer - S: 535 Please use the authorization code to login
+
+2018-05-25 17:00:44.592 [Thread-5] INFO  MailServer - R: d296293760
+2018-05-25 17:00:44.592 [Thread-5] INFO  MailServer - S: 502 Error: command not implemented
+
+2018-05-25 17:00:50.725 [Thread-5] INFO  MailServer - R: auh
+2018-05-25 17:00:50.726 [Thread-5] INFO  MailServer - S: 502 Error: command not implemented
+
+2018-05-25 17:00:53.985 [Thread-5] INFO  MailServer - R: auth login
+2018-05-25 17:00:53.985 [Thread-5] INFO  MailServer - S: 334 VXNlcm5hbWU6
+
+2018-05-25 17:00:57.863 [Thread-5] INFO  MailServer - R: 296293760
+2018-05-25 17:00:57.864 [Thread-5] INFO  MailServer - S: 334 VXNlcm5hbWU6
+

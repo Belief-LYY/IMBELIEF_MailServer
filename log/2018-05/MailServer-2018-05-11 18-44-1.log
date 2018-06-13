@@ -1,0 +1,7 @@
+2018-05-11 18:44:54.431 [Thread-3] INFO  MailServer - R: null
+2018-05-11 18:44:56.787 [Thread-0] INFO  MailServer - S: 220 smtp.imbelief.com Esmtp Belief Mail Server
+
+2018-05-11 18:44:56.789 [Thread-4] INFO  MailServer - R: USER 296293760
+2018-05-11 18:44:56.790 [Thread-4] INFO  MailServer - S: +OK
+
+2018-05-11 18:44:56.791 [Thread-4] INFO  MailServer - R: PASS vzujaubksmhvbhc

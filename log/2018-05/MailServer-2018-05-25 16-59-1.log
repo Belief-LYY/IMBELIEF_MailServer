@@ -1,0 +1,14 @@
+2018-05-25 16:59:31.687 [Thread-4] INFO  MailServer - S: 220 www.imbelief.com Esmtp Belief Mail Server
+
+2018-05-25 16:59:35.647 [Thread-5] INFO  MailServer - R: helo
+2018-05-25 16:59:35.659 [Thread-5] INFO  MailServer - S: 502 Error: command not implemented
+
+2018-05-25 16:59:37.806 [Thread-5] INFO  MailServer - R: helo aeda
+2018-05-25 16:59:37.806 [Thread-5] INFO  MailServer - S: 250 Ok www.imbelief.com
+
+2018-05-25 16:59:42.394 [Thread-5] INFO  MailServer - R: auth login
+2018-05-25 16:59:42.394 [Thread-5] INFO  MailServer - S: 334 VXNlcm5hbWU6
+
+2018-05-25 16:59:47.959 [Thread-5] INFO  MailServer - R: 296293760
+2018-05-25 16:59:47.978 [Thread-5] INFO  MailServer - S: 334 VXNlcm5hbWU6
+

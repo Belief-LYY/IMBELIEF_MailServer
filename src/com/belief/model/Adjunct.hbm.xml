@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.belief.model.Adjunct" table="adjunct">
+
+	    <!-- 主键关联 -->
+		<id name="adjunct_id" column="adjunct_id"></id>
+
+		<!-- 属性关联 -->
+		<property name="mail_id" column="mail_id"></property>
+		<property name="adjunct_type" column="adjunct_type"></property>
+		<property name="adjunct_size" column="adjunct_size"></property>
+		<property name="adjunct_url" column="adjunct_url"></property>
+	</class>
+</hibernate-mapping>

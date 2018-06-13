@@ -1,0 +1,11 @@
+2018-05-24 10:56:15.088 [Thread-0] INFO  MailServer - S: 220 www.imbelief.com Esmtp Belief Mail Server
+
+2018-05-24 10:56:15.188 [Thread-3] INFO  MailServer - R: USER 296293760
+2018-05-24 10:56:15.197 [Thread-3] INFO  MailServer - S: +OK
+
+2018-05-24 10:56:15.205 [Thread-3] INFO  MailServer - R: PASS vzujaubksmhvbhc
+2018-05-24 10:56:15.432 [Thread-3] INFO  MailServer - S: 235 Authentication successful
+
+2018-05-24 10:56:15.434 [Thread-3] INFO  MailServer - S: 502 Error: command not implemented
+2
+2018-05-24 10:56:15.435 [Thread-3] INFO  MailServer - R: LIST
