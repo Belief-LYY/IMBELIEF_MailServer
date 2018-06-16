@@ -32,6 +32,38 @@ import com.belief.server.SmtpServer;
 
 public class IndexFace implements ActionListener {
 
+	private static final int DEFAULT_HEIGHT = 500;
+
+	// 设置窗体默认位置和大小
+	private static final int DEFAULT_WIDTH = 400;
+	private static final int DEFAULT_X = 250;
+	private static final int DEFAULT_Y = 100;
+	public static void main(String[] args) {
+		/*
+		 * 所有的Swing组件必须由事件分派线程(event dispatch thread)进行配置，
+		 * 线程将鼠标点击和按钮控制转移到用户接口组件。下面的代码片段是事件分派线程中的执行代码。 现在，只需要将其看成是启动一个Swing程序的神器代码。
+		 */
+		EventQueue.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				new IndexFace();
+			}
+		});
+	}
+	JButton ButtonAdd = new JButton(" 添加 ");
+	JButton ButtonChange = new JButton(" 修改 ");
+	JButton ButtonClear = new JButton(" 清空 ");
+	JButton ButtonDelete = new JButton(" 删除 ");
+	JButton ButtonGPOP3 = new JButton(" 启动POP3协议 ");
+	JButton ButtonGSMTP = new JButton(" 启动SMTP协议 ");
+
+	// 四个按钮，登录，重置，退出
+	JButton ButtonRefesh = new JButton(" 刷新IP ");
+	JButton ButtonRefreshTable = new JButton(" 刷新表单 ");
+	JButton ButtonRun = new JButton(" 运行服务器 ");
+	JButton ButtonSearch = new JButton(" 查询 ");
+
 	/**
 	 * Author:KING-ERIC Date:2018-3-31 23:00
 	 */
@@ -40,74 +72,34 @@ public class IndexFace implements ActionListener {
 
 	// 定义主窗体，顶层容器
 	JFrame Frame = new JFrame("MailServer-信仰");
-
-	// 四个按钮，登录，重置，退出
-	JButton ButtonRefesh = new JButton(" 刷新IP ");
-	JButton ButtonRun = new JButton(" 运行服务器 ");
-	JButton ButtonGSMTP = new JButton(" 启动SMTP协议 ");
-	JButton ButtonGPOP3 = new JButton(" 启动POP3协议 ");
-	JButton ButtonAdd = new JButton(" 添加 ");
-	JButton ButtonDelete = new JButton(" 删除 ");
-	JButton ButtonChange = new JButton(" 修改 ");
-	JButton ButtonClear = new JButton(" 清空 ");
-	JButton ButtonSearch = new JButton(" 查询 ");
-	JButton ButtonRefreshTable = new JButton(" 刷新表单 ");
-
 	// 七个文本标签(JLabel可以显示文本、图像或同时显示二者)
 	JLabel InfoLabel1 = new JLabel("欢迎使用邮件服务器，当前版本 Version 5.0");
+
 	JLabel InfoLabel2 = new JLabel("当前主机名：KING-ERIC        服务器当前IP地址：127.0.0.1");
 	JLabel InfoLabel3 = new JLabel("SMTP协议状态：  协议已停止");
+
 	JLabel InfoLabel4 = new JLabel("POP3协议状态：  协议已停止");
-
-	// 两个JTable
-	JTable Table1 = null;
-	JTable Table2 = null;
-
-	// 两个自动水平和/或垂直滚动的容器类
-	JScrollPane ScrollPane1 = new JScrollPane();
-	JScrollPane ScrollPane2 = new JScrollPane();
-
 	JLabel JLabel1 = new JLabel("邮   箱");
 	JLabel JLabel2 = new JLabel("密   码");
 	JLabel JLabel3 = new JLabel("姓   名");
+
 	JLabel JLabel4 = new JLabel("请输入要查询的用户：");
-
-	JTextPane JTextPane1 = new JTextPane();
-	JTextPane JTextPane2 = new JTextPane();
-	JTextPane JTextPane3 = new JTextPane();
-	JTextPane JTextPane4 = new JTextPane();
-	JTextPane JTextPane5 = new JTextPane();
-	JTextPane JTextPane6 = new JTextPane();
-
-	JTextField JTextField1 = new JTextField(10);
-	JTextField JTextField2 = new JTextField(10);
-	JTextField JTextField3 = new JTextField(10);
-	JTextField JTextField4 = new JTextField(10);
-	JTextField JTextField5 = new JTextField(10);
-	JTextField JTextField6 = new JTextField(10);
-	JTextField JTextField7 = new JTextField(10);
-
 	// 十九个面板容器(JPanel中间容器)，Swing组件不能直接添加到顶层容器中，它必须添加到一个与Swing顶层容器相关联的内容面板（Content
 	// Pane）上
 	JPanel JPanel1 = new JPanel();
-	JPanel JPanel2 = new JPanel();
-	JPanel JPanel3 = new JPanel();
-	JPanel JPanel4 = new JPanel();
-	JPanel JPanel5 = new JPanel();
-	JPanel JPanel6 = new JPanel();
-	JPanel JPanel7 = new JPanel();
-	JPanel JPanel8 = new JPanel();
-	JPanel JPanel9 = new JPanel();
 	JPanel JPanel10 = new JPanel();
 	JPanel JPanel11 = new JPanel();
 	JPanel JPanel12 = new JPanel();
 	JPanel JPanel13 = new JPanel();
+
 	JPanel JPanel14 = new JPanel();
 	JPanel JPanel15 = new JPanel();
 	JPanel JPanel16 = new JPanel();
 	JPanel JPanel17 = new JPanel();
 	JPanel JPanel18 = new JPanel();
 	JPanel JPanel19 = new JPanel();
+	JPanel JPanel2 = new JPanel();
+
 	JPanel JPanel20 = new JPanel();
 	JPanel JPanel21 = new JPanel();
 	JPanel JPanel22 = new JPanel();
@@ -118,23 +110,45 @@ public class IndexFace implements ActionListener {
 	JPanel JPanel27 = new JPanel();
 	JPanel JPanel28 = new JPanel();
 	JPanel JPanel29 = new JPanel();
+	JPanel JPanel3 = new JPanel();
+	JPanel JPanel4 = new JPanel();
+	JPanel JPanel5 = new JPanel();
+	JPanel JPanel6 = new JPanel();
+	JPanel JPanel7 = new JPanel();
+	JPanel JPanel8 = new JPanel();
+	JPanel JPanel9 = new JPanel();
+	JTextField JTextField1 = new JTextField(10);
+	JTextField JTextField2 = new JTextField(10);
+	JTextField JTextField3 = new JTextField(10);
+	JTextField JTextField4 = new JTextField(10);
+	JTextField JTextField5 = new JTextField(10);
+	JTextField JTextField6 = new JTextField(10);
+	JTextField JTextField7 = new JTextField(10);
+	JTextPane JTextPane1 = new JTextPane();
+	JTextPane JTextPane2 = new JTextPane();
+	JTextPane JTextPane3 = new JTextPane();
+	JTextPane JTextPane4 = new JTextPane();
+	JTextPane JTextPane5 = new JTextPane();
 
-	// 一个菜单项
-	JMenuBar MenuBar1 = new JMenuBar();
+	JTextPane JTextPane6 = new JTextPane();
 	JMenu Menu1 = new JMenu(" 选项 ");
 	JMenu Menu2 = new JMenu(" 帮助 ");
+	// 一个菜单项
+	JMenuBar MenuBar1 = new JMenuBar();
 	JMenuItem MenuItem1 = new JMenuItem("退出");
 	JMenuItem MenuItem2 = new JMenuItem("关于");
+
 	JMenuItem MenuItem3 = new JMenuItem("帮助");
 
+	// 两个自动水平和/或垂直滚动的容器类
+	JScrollPane ScrollPane1 = new JScrollPane();
+	JScrollPane ScrollPane2 = new JScrollPane();
 	// 来一个JTabbedPane容器
 	JTabbedPane TabbedPane = new JTabbedPane();
+	// 两个JTable
+	JTable Table1 = null;
 
-	// 设置窗体默认位置和大小
-	private static final int DEFAULT_WIDTH = 400;
-	private static final int DEFAULT_HEIGHT = 500;
-	private static final int DEFAULT_X = 250;
-	private static final int DEFAULT_Y = 100;
+	JTable Table2 = null;
 
 	public IndexFace() {
 		super();
@@ -295,6 +309,11 @@ public class IndexFace implements ActionListener {
 		}
 	}
 
+	public void about() {
+		String Content = "*    Author:KING-ERIC\n* Date:2018-3-31 23:00\n    版权所有,翻版必究！";
+		JOptionPane.showMessageDialog(null, Content, "关于我们", JOptionPane.INFORMATION_MESSAGE);
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
@@ -327,51 +346,6 @@ public class IndexFace implements ActionListener {
 		}
 	}
 
-	public void about() {
-		String Content = "*    Author:KING-ERIC\n* Date:2018-3-31 23:00\n    版权所有,翻版必究！";
-		JOptionPane.showMessageDialog(null, Content, "关于我们", JOptionPane.INFORMATION_MESSAGE);
-	}
-
-	public void help() {
-		String Content = "https://blog.csdn.net/lyy296293760";
-		JOptionPane.showMessageDialog(null, Content, "帮助", JOptionPane.INFORMATION_MESSAGE);
-	}
-
-	public void refeship() {
-		try {
-			InetAddress localhost = InetAddress.getLocalHost();
-			if (localhost != null)
-				InfoLabel2.setText(
-						"当前主机名：" + localhost.getHostName() + "        服务器当前IP地址：" + localhost.getHostAddress());
-		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	public void runserver() {
-		String Content = "https://blog.csdn.net/lyy296293760";
-		POP3Server.getPOP3Server().StartServer();
-		SmtpServer.getSmtpServer().StartServer();
-		InfoLabel3.setText("SMTP协议状态：  协议已开启");
-		InfoLabel4.setText("POP3协议状态：  协议已开启");
-		JOptionPane.showMessageDialog(null, Content, "帮助", JOptionPane.INFORMATION_MESSAGE);
-	}
-
-	public void startsmtp() {
-		String Content = "https://blog.csdn.net/lyy296293760";
-		SmtpServer.getSmtpServer().StartServer();
-		InfoLabel3.setText("SMTP协议状态：  协议已开启");
-		JOptionPane.showMessageDialog(null, Content, "帮助", JOptionPane.INFORMATION_MESSAGE);
-	}
-
-	public void startpop3() {
-		String Content = "https://blog.csdn.net/lyy296293760";
-		POP3Server.getPOP3Server().StartServer();
-		InfoLabel4.setText("POP3协议状态：  协议已开启");
-		JOptionPane.showMessageDialog(null, Content, "帮助", JOptionPane.INFORMATION_MESSAGE);
-	}
-
 	public void add() {
 		String email = JTextField1.getText();
 		String password = JTextField2.getText();
@@ -398,6 +372,12 @@ public class IndexFace implements ActionListener {
 		}
 	}
 
+	public void clear() {
+		JTextField1.setText("");
+		JTextField2.setText("");
+		JTextField3.setText("");
+	}
+
 	public void delete() {
 		String email = JTextField1.getText();
 		if (email == null || email.equals("")) {
@@ -414,6 +394,11 @@ public class IndexFace implements ActionListener {
 				JOptionPane.showMessageDialog(null, "用户不存在，删除失败！", "提示", JOptionPane.INFORMATION_MESSAGE);
 			}
 		}
+	}
+
+	public void help() {
+		String Content = "https://blog.csdn.net/lyy296293760";
+		JOptionPane.showMessageDialog(null, Content, "帮助", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	public void modify() {
@@ -442,12 +427,6 @@ public class IndexFace implements ActionListener {
 		}
 	}
 
-	public void clear() {
-		JTextField1.setText("");
-		JTextField2.setText("");
-		JTextField3.setText("");
-	}
-
 	public void query() {
 		String email = JTextField4.getText();
 		User iuser = new userDaoImpl().QueryByEmail(email);
@@ -455,6 +434,18 @@ public class IndexFace implements ActionListener {
 			JOptionPane.showMessageDialog(null, iuser, "用户信息", JOptionPane.INFORMATION_MESSAGE);
 		else
 			JOptionPane.showMessageDialog(null, "请输入要查询的用户邮箱！", "提示", JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	public void refeship() {
+		try {
+			InetAddress localhost = InetAddress.getLocalHost();
+			if (localhost != null)
+				InfoLabel2.setText(
+						"当前主机名：" + localhost.getHostName() + "        服务器当前IP地址：" + localhost.getHostAddress());
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void refeshtable() {
@@ -487,17 +478,26 @@ public class IndexFace implements ActionListener {
 		JPanel8.add(ScrollPane1);
 	}
 
-	public static void main(String[] args) {
-		/*
-		 * 所有的Swing组件必须由事件分派线程(event dispatch thread)进行配置，
-		 * 线程将鼠标点击和按钮控制转移到用户接口组件。下面的代码片段是事件分派线程中的执行代码。 现在，只需要将其看成是启动一个Swing程序的神器代码。
-		 */
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				// TODO Auto-generated method stub
-				new IndexFace();
-			}
-		});
+	public void runserver() {
+		String Content = "https://blog.csdn.net/lyy296293760";
+		POP3Server.getPOP3Server().StartServer();
+		SmtpServer.getSmtpServer().StartServer();
+		InfoLabel3.setText("SMTP协议状态：  协议已开启");
+		InfoLabel4.setText("POP3协议状态：  协议已开启");
+		JOptionPane.showMessageDialog(null, Content, "帮助", JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	public void startpop3() {
+		String Content = "https://blog.csdn.net/lyy296293760";
+		POP3Server.getPOP3Server().StartServer();
+		InfoLabel4.setText("POP3协议状态：  协议已开启");
+		JOptionPane.showMessageDialog(null, Content, "帮助", JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	public void startsmtp() {
+		String Content = "https://blog.csdn.net/lyy296293760";
+		SmtpServer.getSmtpServer().StartServer();
+		InfoLabel3.setText("SMTP协议状态：  协议已开启");
+		JOptionPane.showMessageDialog(null, Content, "帮助", JOptionPane.INFORMATION_MESSAGE);
 	}
 }

@@ -5,10 +5,26 @@ import java.net.ServerSocket;
 import java.util.Date;
 
 import com.belief.connection.Connection;
-import com.belief.listener.*;
+import com.belief.listener.PEmailListener;
+import com.belief.listener.PLoginListener;
 
 public class POP3Server {
+	// 静态内部类，在该内部类中创建单例对象，再将该单例对象通过getInstance()方法返回给外部使用
+	private static class InternalClass {
+		private final static POP3Server aPOP3Server = new POP3Server();
+	}
+
 	private static ServerSocket aServerSocket;
+
+	// 公有静态成员方法，返回唯一实例
+	public static synchronized POP3Server getPOP3Server() {
+		return InternalClass.aPOP3Server;
+	}
+
+	public static void main(String[] args) {
+		POP3Server aPOP3Server = new POP3Server();
+		aPOP3Server.StartServer();
+	}
 
 	// 私有构造函数
 	private POP3Server() {
@@ -18,16 +34,6 @@ public class POP3Server {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-
-	// 静态内部类，在该内部类中创建单例对象，再将该单例对象通过getInstance()方法返回给外部使用
-	private static class InternalClass {
-		private final static POP3Server aPOP3Server = new POP3Server();
-	}
-
-	// 公有静态成员方法，返回唯一实例
-	public static synchronized POP3Server getPOP3Server() {
-		return InternalClass.aPOP3Server;
 	}
 
 	public synchronized void StartServer() {
@@ -52,10 +58,5 @@ public class POP3Server {
 				}
 			}
 		}.start();
-	}
-
-	public static void main(String[] args) {
-		POP3Server aPOP3Server = new POP3Server();
-		aPOP3Server.StartServer();
 	}
 }

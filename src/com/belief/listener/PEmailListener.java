@@ -5,9 +5,9 @@ import java.util.List;
 
 import com.belief.Impl.mailDaoImpl;
 import com.belief.connection.Connection;
+import com.belief.connection.Connection.MsgListener;
 import com.belief.model.Mail;
 import com.belief.model.MessageType;
-import com.belief.connection.Connection.MsgListener;
 
 public class PEmailListener implements MsgListener {
 	private Connection conn;

@@ -8,9 +8,9 @@ import com.belief.service.UserService;
 
 public class PLoginListener implements MsgListener {
 	private Connection conn;
+	private String Password = null;
 	// Message Buffer
 	private String Usermail = null;
-	private String Password = null;
 
 	public PLoginListener(Connection conn) {
 		super();

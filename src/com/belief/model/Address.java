@@ -5,42 +5,9 @@ import java.io.Serializable;
 //联合主键实体类必须实现序列化接口
 public class Address implements Serializable {
 	private static final long serialVersionUID = 1L;// 序列化的序列号
-	private String mail_address;
 	private String friend_address;
+	private String mail_address;
 	private String remark_name;
-
-	public String getMail_address() {
-		return mail_address;
-	}
-
-	public void setMail_address(String mail_address) {
-		this.mail_address = mail_address;
-	}
-
-	public String getFriend_address() {
-		return friend_address;
-	}
-
-	public void setFriend_address(String friend_address) {
-		this.friend_address = friend_address;
-	}
-
-	public String getRemark_name() {
-		return remark_name;
-	}
-
-	public void setRemark_name(String remark_name) {
-		this.remark_name = remark_name;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((friend_address == null) ? 0 : friend_address.hashCode());
-		result = prime * result + ((mail_address == null) ? 0 : mail_address.hashCode());
-		return result;
-	}
 
 	@Override
 	public boolean equals(Object obj) {
@@ -62,6 +29,39 @@ public class Address implements Serializable {
 		} else if (!mail_address.equals(other.mail_address))
 			return false;
 		return true;
+	}
+
+	public String getFriend_address() {
+		return friend_address;
+	}
+
+	public String getMail_address() {
+		return mail_address;
+	}
+
+	public String getRemark_name() {
+		return remark_name;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((friend_address == null) ? 0 : friend_address.hashCode());
+		result = prime * result + ((mail_address == null) ? 0 : mail_address.hashCode());
+		return result;
+	}
+
+	public void setFriend_address(String friend_address) {
+		this.friend_address = friend_address;
+	}
+
+	public void setMail_address(String mail_address) {
+		this.mail_address = mail_address;
+	}
+
+	public void setRemark_name(String remark_name) {
+		this.remark_name = remark_name;
 	}
 
 	@Override

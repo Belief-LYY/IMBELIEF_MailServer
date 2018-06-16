@@ -2,7 +2,7 @@ package com.belief.test;
 
 import org.junit.Test;
 
-import com.belief.Impl.*;
+import com.belief.Impl.mailDaoImpl;
 
 //仅供测试
 public class TestMail {

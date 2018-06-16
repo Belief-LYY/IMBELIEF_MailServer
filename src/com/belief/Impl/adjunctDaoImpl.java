@@ -9,20 +9,8 @@ import com.belief.model.Adjunct;
 public class adjunctDaoImpl extends ImplFather implements adjunctDao {
 
 	@Override
-	public void save(Adjunct adjunct) {
-		session.save(adjunct);
-		cleanUp();
-	}
-
-	@Override
 	public void delete(Adjunct adjunct) {
 		session.delete(adjunct);
-		cleanUp();
-	}
-
-	@Override
-	public void update(Adjunct adjunct) {
-		session.update(adjunct);
 		cleanUp();
 	}
 
@@ -41,6 +29,18 @@ public class adjunctDaoImpl extends ImplFather implements adjunctDao {
 				.getResultList();
 		cleanUp();
 		return adjuncts;
+	}
+
+	@Override
+	public void save(Adjunct adjunct) {
+		session.save(adjunct);
+		cleanUp();
+	}
+
+	@Override
+	public void update(Adjunct adjunct) {
+		session.update(adjunct);
+		cleanUp();
 	}
 
 }

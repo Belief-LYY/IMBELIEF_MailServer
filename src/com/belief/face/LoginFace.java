@@ -22,6 +22,38 @@ import com.belief.service.AdminService;
 
 public class LoginFace implements ActionListener {
 
+	private static final int DEFAULT_COLUS = 1;
+
+	private static final int DEFAULT_HEIGHT = 250;
+	private static final int DEFAULT_ROWS = 4;
+
+	// 设置窗体默认位置和大小
+	private static final int DEFAULT_WIDTH = 300;
+	private static final int DEFAULT_X = 520;
+	private static final int DEFAULT_Y = 250;
+
+	public static void main(String[] args) {
+		/*
+		 * 所有的Swing组件必须由事件分派线程(event dispatch thread)进行配置，
+		 * 线程将鼠标点击和按钮控制转移到用户接口组件。下面的代码片段是事件分派线程中的执行代码。 现在，只需要将其看成是启动一个Swing程序的神器代码。
+		 */
+		EventQueue.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				new LoginFace();
+			}
+		});
+	}
+	// 两个文本框，一个账号，一个密码
+	JTextField Account = new JTextField(10);
+
+	JButton ButtonExit = new JButton("退出");
+	ButtonGroup ButtonGroupRole = new ButtonGroup();
+	// 三个按钮，登录，重置，退出
+	JButton ButtonLogin = new JButton("登录");
+
+	JButton ButtonReset = new JButton("重置");
 	/**
 	 * Author:KING-ERIC Date:2018-3-31 23:00
 	 */
@@ -30,46 +62,28 @@ public class LoginFace implements ActionListener {
 
 	// 定义主窗体，顶层容器
 	JFrame Frame = new JFrame("MailServer-信仰");
-
-	// 两个文本框，一个账号，一个密码
-	JTextField Account = new JTextField(10);
-	JPasswordField passWord = new JPasswordField(10);
-
-	// 三个按钮，登录，重置，退出
-	JButton ButtonLogin = new JButton("登录");
-	JButton ButtonReset = new JButton("重置");
-	JButton ButtonExit = new JButton("退出");
-
-	// 两个单选框，一个用户，一个管理员，共同作为一个 ButtonGroup，去掉用户单选框
-	// JRadioButton RadioButtonUser=new JRadioButton("用户",true);
-	JRadioButton RadioButtonAdmin = new JRadioButton("管理员", true);
-	ButtonGroup ButtonGroupRole = new ButtonGroup();
-
-	// 三个文本标签(JLabel可以显示文本、图像或同时显示二者)，用户名：，密码：，角色：
-	JLabel userLabel = new JLabel("用户名：");
-	JLabel passLabel = new JLabel("密    码：");
-	JLabel roleLabel = new JLabel("角    色：");
-
 	// 四个面板容器(JPanel中间容器)，Swing组件不能直接添加到顶层容器中，它必须添加到一个与Swing顶层容器相关联的内容面板（Content
 	// Pane）上
 	JPanel JPanel1 = new JPanel();
 	JPanel JPanel2 = new JPanel();
+
 	JPanel JPanel3 = new JPanel();
 	JPanel JPanel4 = new JPanel();
-
+	JMenu Menu = new JMenu("选项");
 	// 一个菜单项
 	JMenuBar MenuBar = new JMenuBar();
-	JMenu Menu = new JMenu("选项");
+
 	JMenuItem MenuItem1 = new JMenuItem("退出");
 	JMenuItem MenuItem2 = new JMenuItem("关于");
+	JLabel passLabel = new JLabel("密    码：");
+	JPasswordField passWord = new JPasswordField(10);
+	// 两个单选框，一个用户，一个管理员，共同作为一个 ButtonGroup，去掉用户单选框
+	// JRadioButton RadioButtonUser=new JRadioButton("用户",true);
+	JRadioButton RadioButtonAdmin = new JRadioButton("管理员", true);
+	JLabel roleLabel = new JLabel("角    色：");
 
-	// 设置窗体默认位置和大小
-	private static final int DEFAULT_WIDTH = 300;
-	private static final int DEFAULT_HEIGHT = 250;
-	private static final int DEFAULT_ROWS = 4;
-	private static final int DEFAULT_COLUS = 1;
-	private static final int DEFAULT_X = 520;
-	private static final int DEFAULT_Y = 250;
+	// 三个文本标签(JLabel可以显示文本、图像或同时显示二者)，用户名：，密码：，角色：
+	JLabel userLabel = new JLabel("用户名：");
 
 	public LoginFace() {
 		super();
@@ -133,6 +147,11 @@ public class LoginFace implements ActionListener {
 		MenuItem2.addActionListener(this);
 	}
 
+	public void about() {
+		String Content = "*    Author:KING-ERIC\n* Date:2018-3-31 23:00\n    版权所有,翻版必究！";
+		JOptionPane.showMessageDialog(null, Content, "关于我们", JOptionPane.INFORMATION_MESSAGE);
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
@@ -179,24 +198,5 @@ public class LoginFace implements ActionListener {
 				this.clear();
 			}
 		}
-	}
-
-	public void about() {
-		String Content = "*    Author:KING-ERIC\n* Date:2018-3-31 23:00\n    版权所有,翻版必究！";
-		JOptionPane.showMessageDialog(null, Content, "关于我们", JOptionPane.INFORMATION_MESSAGE);
-	}
-
-	public static void main(String[] args) {
-		/*
-		 * 所有的Swing组件必须由事件分派线程(event dispatch thread)进行配置，
-		 * 线程将鼠标点击和按钮控制转移到用户接口组件。下面的代码片段是事件分派线程中的执行代码。 现在，只需要将其看成是启动一个Swing程序的神器代码。
-		 */
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				// TODO Auto-generated method stub
-				new LoginFace();
-			}
-		});
 	}
 }

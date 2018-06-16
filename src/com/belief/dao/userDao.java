@@ -6,14 +6,14 @@ import com.belief.model.User;
 
 //业务层抽象接口
 public interface userDao {
-	void save(User user);
-
 	void delete(User user);
 
-	void update(User user);
+	ArrayList<User> QueryAllUser();
 
 	User QueryByEmail(String email);
 
-	ArrayList<User> QueryAllUser();
+	void save(User user);
+
+	void update(User user);
 
 }

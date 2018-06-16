@@ -1,6 +1,6 @@
 package com.belief.listener;
 
-import org.apache.commons.codec.binary.Base64;
+import java.util.Base64;
 
 import com.belief.connection.Connection;
 import com.belief.connection.Connection.MsgListener;
@@ -10,9 +10,9 @@ import com.belief.service.UserService;
 
 public class SLoginListener implements MsgListener {
 	private Connection conn;
+	private String Password = null;
 	// Message Buffer
 	private String Usermail = null;
-	private String Password = null;
 
 	public SLoginListener(Connection conn) {
 		super();
@@ -44,7 +44,7 @@ public class SLoginListener implements MsgListener {
 				conn.DisConnect();
 			} else {
 				// Byte构造字符串不能用toString()要用new String()
-				Usermail = new String(Base64.decodeBase64(aMessage)).split("\\@")[0] + MessageType.MSG_TYPE_DOMAIN;
+				Usermail = new String(Base64.getDecoder().decode(aMessage)).split("\\@")[0] + MessageType.MSG_TYPE_DOMAIN;
 				conn.SendClient(MessageType.MSG_TYPE_334);
 				conn.State++;
 			}
@@ -52,7 +52,7 @@ public class SLoginListener implements MsgListener {
 			if (MessageType.MSG_PATTERN_QUIT.matcher(aMessage).matches()) {
 				conn.DisConnect();
 			} else {
-				Password = new String(Base64.decodeBase64(aMessage));
+				Password = new String(Base64.getDecoder().decode(aMessage));
 				if (new UserService().Login(Usermail, Password)) {
 					conn.SendClient(MessageType.MSG_TYPE_235);
 					conn.aUser = new User(Usermail, Password);

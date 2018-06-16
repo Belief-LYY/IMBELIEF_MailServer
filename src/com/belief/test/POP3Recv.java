@@ -20,21 +20,10 @@ import javax.net.ssl.SSLSocketFactory;;
  */
 public class POP3Recv extends TransportModel {
 
-	// 邮件服务器域名地址
-	private String POP3Host = null;
-	// 邮件服务器端口，正常是110，腾讯SSL加密是995
-	private int POP3Port;
-
-	// 私有构造函数
-	private POP3Recv() {
-
-	}
-
 	// 静态内部类，在该内部类中创建单例对象，再将该单例对象通过getInstance()方法返回给外部使用
 	private static class InternalClass {
 		private final static POP3Recv POP3Recv = new POP3Recv();
 	}
-
 	// 公有静态成员方法，返回唯一实例
 	public static synchronized POP3Recv getPOP3Recv() {
 		return InternalClass.POP3Recv;
@@ -47,36 +36,151 @@ public class POP3Recv extends TransportModel {
 		return InternalClass.POP3Recv;
 	}
 
-	public String getPOP3Host() {
-		return POP3Host;
+	// 测试Main函数
+	public static void main(String[] args) {
+		POP3Recv aPOP3Recv = POP3Recv.getPOP3Recv();
+		aPOP3Recv.setPOP3Host("127.0.0.1");
+		aPOP3Recv.setPOP3Port(110);
+		aPOP3Recv.setUsername("296293760");
+		aPOP3Recv.setPassword("vzujaubksmhvbhc");
+		aPOP3Recv.Login();
+		aPOP3Recv.getList();
+		aPOP3Recv.getState();
+		aPOP3Recv.getUIDL("1.0179314590686979");
+		aPOP3Recv.getContent("1.0179314590686979");
+		aPOP3Recv.Delete("1.0179314590686979");
+		aPOP3Recv.Quit();
 	}
 
-	public void setPOP3Host(String pOP3Host) {
-		POP3Host = pOP3Host;
+	public static synchronized boolean SaveFile(byte[] Data, String Path, String FileName) {
+		File SaveFile = new File(Path, FileName);
+		try {
+			SaveFile.createNewFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		FileOutputStream iFileOutputStream = null;
+		try {
+			iFileOutputStream = new FileOutputStream(SaveFile);
+			iFileOutputStream.write(Data);
+			iFileOutputStream.flush();
+			return true;
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			return false;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			if (iFileOutputStream != null) {
+				try {
+					iFileOutputStream.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 
-	public int getPOP3Port() {
-		return POP3Port;
+	// 邮件服务器域名地址
+	private String POP3Host = null;
+
+	// 邮件服务器端口，正常是110，腾讯SSL加密是995
+	private int POP3Port;
+
+	// 私有构造函数
+	private POP3Recv() {
+
 	}
 
-	public void setPOP3Port(int pOP3Port) {
-		POP3Port = pOP3Port;
+	public synchronized String Delete(String Message) {
+		if (isConnected) {
+			System.out.println("<------- 删除 ------->");
+			Send("DELE " + Message + CRLF);
+			return GetResponse();
+		}
+		return null;
 	}
 
-	public String getUsername() {
-		return Username;
+	public synchronized String getContent(String Message) {
+		if (isConnected) {
+			Query("RETR " + Message);
+			return GetResponses();
+		}
+		return null;
 	}
 
-	public void setUsername(String username) {
-		Username = username;
+	public synchronized String getList() {
+		if (isConnected) {
+			Query("LIST");
+			return GetResponses();
+		}
+		return null;
 	}
 
 	public String getPassword() {
 		return Password;
 	}
 
-	public void setPassword(String password) {
-		Password = password;
+	public String getPOP3Host() {
+		return POP3Host;
+	}
+
+	public int getPOP3Port() {
+		return POP3Port;
+	}
+
+	private String GetResponse() {
+		String aString = null;
+		try {
+			aString = aInputStream.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("R: " + aString);
+		return aString;
+	}
+
+	private String GetResponses() {
+		String aString = null;
+		StringBuffer aStringBuffer = new StringBuffer();
+		try {
+			/* LIST和RETR命令的应答虽然有多行，但都用一句"."作为结束，可据此取应答信息 */
+			for (aString = aInputStream.readLine(); (!aString.equals(".")); aString = aInputStream.readLine()) {
+				aStringBuffer.append(aString + "\n");
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(aStringBuffer.toString());
+		return aStringBuffer.toString();
+	}
+
+	public synchronized String getState() {
+		if (isConnected) {
+			try {
+				System.out.println("<------- 查询 ------->");
+				Send("STAT" + CRLF);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return GetResponse();
+		}
+		return null;
+	}
+
+	public synchronized String getUIDL(String Message) {
+		if (isConnected) {
+			Query("UIDL " + Message);
+			return GetResponse();
+		}
+		return null;
+	}
+
+	public String getUsername() {
+		return Username;
 	}
 
 	public synchronized boolean Login() {
@@ -121,82 +225,6 @@ public class POP3Recv extends TransportModel {
 		return isConnected;
 	}
 
-	public synchronized String getState() {
-		if (isConnected) {
-			try {
-				System.out.println("<------- 查询 ------->");
-				Send("STAT" + CRLF);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return GetResponse();
-		}
-		return null;
-	}
-
-	private void Send(String Command) {
-		try {
-			aOutputStream.write(Command);
-			// flush冲一下
-			aOutputStream.flush();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		System.out.print("S: " + Command);
-	}
-
-	private String GetResponse() {
-		String aString = null;
-		try {
-			aString = aInputStream.readLine();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println("R: " + aString);
-		return aString;
-	}
-
-	private String GetResponses() {
-		String aString = null;
-		StringBuffer aStringBuffer = new StringBuffer();
-		try {
-			/* LIST和RETR命令的应答虽然有多行，但都用一句"."作为结束，可据此取应答信息 */
-			for (aString = aInputStream.readLine(); (!aString.equals(".")); aString = aInputStream.readLine()) {
-				aStringBuffer.append(aString + "\n");
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println(aStringBuffer.toString());
-		return aStringBuffer.toString();
-	}
-
-	public synchronized String getList() {
-		if (isConnected) {
-			Query("LIST");
-			return GetResponses();
-		}
-		return null;
-	}
-
-	public synchronized String getContent(String Message) {
-		if (isConnected) {
-			Query("RETR " + Message);
-			return GetResponses();
-		}
-		return null;
-	}
-
-	public synchronized String getUIDL(String Message) {
-		if (isConnected) {
-			Query("UIDL " + Message);
-			return GetResponse();
-		}
-		return null;
-	}
-
 	private void Query(String Message) {
 		try {
 			System.out.println("<------- 查询 ------->");
@@ -204,24 +232,6 @@ public class POP3Recv extends TransportModel {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-
-	public synchronized String Delete(String Message) {
-		if (isConnected) {
-			System.out.println("<------- 删除 ------->");
-			Send("DELE " + Message + CRLF);
-			return GetResponse();
-		}
-		return null;
-	}
-
-	public synchronized String Reset() {
-		if (isConnected) {
-			System.out.println("<------- 重置 ------->");
-			Send("RSET" + CRLF);
-			return GetResponse();
-		}
-		return null;
 	}
 
 	public synchronized boolean Quit() {
@@ -253,49 +263,39 @@ public class POP3Recv extends TransportModel {
 		return isConnected;
 	}
 
-	public static synchronized boolean SaveFile(byte[] Data, String Path, String FileName) {
-		File SaveFile = new File(Path, FileName);
-		try {
-			SaveFile.createNewFile();
-		} catch (IOException e) {
-			e.printStackTrace();
+	public synchronized String Reset() {
+		if (isConnected) {
+			System.out.println("<------- 重置 ------->");
+			Send("RSET" + CRLF);
+			return GetResponse();
 		}
-		FileOutputStream iFileOutputStream = null;
-		try {
-			iFileOutputStream = new FileOutputStream(SaveFile);
-			iFileOutputStream.write(Data);
-			iFileOutputStream.flush();
-			return true;
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-			return false;
-		} catch (IOException e) {
-			e.printStackTrace();
-			return false;
-		} finally {
-			if (iFileOutputStream != null) {
-				try {
-					iFileOutputStream.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
+		return null;
 	}
 
-	// 测试Main函数
-	public static void main(String[] args) {
-		POP3Recv aPOP3Recv = POP3Recv.getPOP3Recv();
-		aPOP3Recv.setPOP3Host("127.0.0.1");
-		aPOP3Recv.setPOP3Port(110);
-		aPOP3Recv.setUsername("296293760");
-		aPOP3Recv.setPassword("vzujaubksmhvbhc");
-		aPOP3Recv.Login();
-		aPOP3Recv.getList();
-		aPOP3Recv.getState();
-		aPOP3Recv.getUIDL("1.0179314590686979");
-		aPOP3Recv.getContent("1.0179314590686979");
-		aPOP3Recv.Delete("1.0179314590686979");
-		aPOP3Recv.Quit();
+	private void Send(String Command) {
+		try {
+			aOutputStream.write(Command);
+			// flush冲一下
+			aOutputStream.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.print("S: " + Command);
+	}
+
+	public void setPassword(String password) {
+		Password = password;
+	}
+
+	public void setPOP3Host(String pOP3Host) {
+		POP3Host = pOP3Host;
+	}
+
+	public void setPOP3Port(int pOP3Port) {
+		POP3Port = pOP3Port;
+	}
+
+	public void setUsername(String username) {
+		Username = username;
 	}
 }

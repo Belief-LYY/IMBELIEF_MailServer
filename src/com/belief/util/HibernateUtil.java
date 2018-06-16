@@ -22,9 +22,13 @@ public class HibernateUtil {
 		}
 	}
 
-	// 获得SessionFactory实例
-	public static SessionFactory getSessionFactory() {
-		return sessionFactory;
+	public static void closeSession() throws HibernateException {
+		// 从线程局部变量threadLocal中获取之前存入的Session实例
+		Session session = (Session) threadLocal.get();
+		threadLocal.set(null);
+		if (session != null) {
+			session.close();
+		}
 	}
 
 	// 获得ThreadLocal对象管理的Session实例
@@ -41,13 +45,9 @@ public class HibernateUtil {
 		return session;
 	}
 
-	public static void closeSession() throws HibernateException {
-		// 从线程局部变量threadLocal中获取之前存入的Session实例
-		Session session = (Session) threadLocal.get();
-		threadLocal.set(null);
-		if (session != null) {
-			session.close();
-		}
+	// 获得SessionFactory实例
+	public static SessionFactory getSessionFactory() {
+		return sessionFactory;
 	}
 
 	// 重建SessionFactory

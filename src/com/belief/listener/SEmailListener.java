@@ -7,16 +7,16 @@ import java.util.regex.Matcher;
 
 import com.belief.Impl.mailDaoImpl;
 import com.belief.connection.Connection;
+import com.belief.connection.Connection.MsgListener;
 import com.belief.model.Mail;
 import com.belief.model.MessageType;
-import com.belief.connection.Connection.MsgListener;
 
 public class SEmailListener implements MsgListener {
 	private Connection conn;
+	private StringBuffer Content = new StringBuffer("");
+	private String MailFrom;
 	// Message Buffer
 	private List<Mail> Mails = new ArrayList<Mail>();
-	private String MailFrom;
-	private StringBuffer Content = new StringBuffer("");
 
 	public SEmailListener(Connection conn) {
 		super();

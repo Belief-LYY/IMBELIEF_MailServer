@@ -9,28 +9,9 @@ import com.belief.model.Mail;
 public class mailDaoImpl extends ImplFather implements mailDao {
 
 	@Override
-	public void save(Mail mail) {
-		session.save(mail);
-		cleanUp();
-	}
-
-	@Override
 	public void delete(Mail mail) {
 		session.delete(mail);
 		cleanUp();
-	}
-
-	@Override
-	public void update(Mail mail) {
-		session.update(mail);
-		cleanUp();
-	}
-
-	@Override
-	public Mail QueryByMailId(String mail_id) {
-		Mail mail = (Mail) session.get(Mail.class, mail_id);
-		cleanUp();
-		return mail;
 	}
 
 	@Override
@@ -41,6 +22,13 @@ public class mailDaoImpl extends ImplFather implements mailDao {
 				.getResultList();
 		cleanUp();
 		return mails;
+	}
+
+	@Override
+	public Mail QueryByMailId(String mail_id) {
+		Mail mail = (Mail) session.get(Mail.class, mail_id);
+		cleanUp();
+		return mail;
 	}
 
 	@Override
@@ -61,5 +49,17 @@ public class mailDaoImpl extends ImplFather implements mailDao {
 				.setParameter("state_read", state_read).getResultList();
 		cleanUp();
 		return mails;
+	}
+
+	@Override
+	public void save(Mail mail) {
+		session.save(mail);
+		cleanUp();
+	}
+
+	@Override
+	public void update(Mail mail) {
+		session.update(mail);
+		cleanUp();
 	}
 }

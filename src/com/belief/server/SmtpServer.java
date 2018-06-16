@@ -5,10 +5,26 @@ import java.net.ServerSocket;
 import java.util.Date;
 
 import com.belief.connection.Connection;
-import com.belief.listener.*;
+import com.belief.listener.SEmailListener;
+import com.belief.listener.SLoginListener;
 
 public class SmtpServer {
+	// 静态内部类，在该内部类中创建单例对象，再将该单例对象通过getInstance()方法返回给外部使用
+	private static class InternalClass {
+		private final static SmtpServer smtpServer = new SmtpServer();
+	}
+
 	private static ServerSocket aServerSocket;
+
+	// 公有静态成员方法，返回唯一实例
+	public static SmtpServer getSmtpServer() {
+		return InternalClass.smtpServer;
+	}
+
+	public static void main(String[] args) {
+		SmtpServer aSmtpServer = new SmtpServer();
+		aSmtpServer.StartServer();
+	}
 
 	// 私有构造函数
 	private SmtpServer() {
@@ -18,16 +34,6 @@ public class SmtpServer {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-
-	// 静态内部类，在该内部类中创建单例对象，再将该单例对象通过getInstance()方法返回给外部使用
-	private static class InternalClass {
-		private final static SmtpServer smtpServer = new SmtpServer();
-	}
-
-	// 公有静态成员方法，返回唯一实例
-	public static SmtpServer getSmtpServer() {
-		return InternalClass.smtpServer;
 	}
 
 	public void StartServer() {
@@ -52,10 +58,5 @@ public class SmtpServer {
 				}
 			}
 		}.start();
-	}
-
-	public static void main(String[] args) {
-		SmtpServer aSmtpServer = new SmtpServer();
-		aSmtpServer.StartServer();
 	}
 }

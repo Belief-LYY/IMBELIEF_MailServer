@@ -9,21 +9,18 @@ import com.belief.model.User;
 public class userDaoImpl extends ImplFather implements userDao {
 
 	@Override
-	public void save(User user) {
-		session.save(user);
-		cleanUp();
-	}
-
-	@Override
 	public void delete(User user) {
 		session.delete(user);
 		cleanUp();
 	}
 
 	@Override
-	public void update(User user) {
-		session.update(user);
+	public ArrayList<User> QueryAllUser() {
+		String hql = "FROM User";
+		@SuppressWarnings("unchecked")
+		ArrayList<User> users = (ArrayList<User>) session.createQuery(hql).getResultList();
 		cleanUp();
+		return users;
 	}
 
 	@Override
@@ -34,12 +31,15 @@ public class userDaoImpl extends ImplFather implements userDao {
 	}
 
 	@Override
-	public ArrayList<User> QueryAllUser() {
-		String hql = "FROM User";
-		@SuppressWarnings("unchecked")
-		ArrayList<User> users = (ArrayList<User>) session.createQuery(hql).getResultList();
+	public void save(User user) {
+		session.save(user);
 		cleanUp();
-		return users;
+	}
+
+	@Override
+	public void update(User user) {
+		session.update(user);
+		cleanUp();
 	}
 
 }
