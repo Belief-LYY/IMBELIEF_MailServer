@@ -1,0 +1,84 @@
+2018-06-16 12:39:03.027 [Thread-5] INFO  MailServer - S: 220 www.imbelief.com Esmtp Belief Mail Server
+
+2018-06-16 12:39:03.058 [Thread-8] INFO  MailServer - R: HELO 127.0.0.1
+2018-06-16 12:39:03.059 [Thread-8] INFO  MailServer - S: 250 Ok www.imbelief.com
+
+2018-06-16 12:39:03.060 [Thread-8] INFO  MailServer - R: STARTTLS 127.0.0.1
+2018-06-16 12:39:03.061 [Thread-8] INFO  MailServer - S: 502 Error: command not implemented
+
+2018-06-16 12:39:03.061 [Thread-8] INFO  MailServer - R: AUTH LOGIN
+2018-06-16 12:39:03.061 [Thread-8] INFO  MailServer - S: 334 VXNlcm5hbWU6
+
+2018-06-16 12:39:03.123 [Thread-8] INFO  MailServer - R: Mjk2MjkzNzYwQGltYmVsaWVmLmNvbS5jbg==
+2018-06-16 12:39:03.123 [Thread-8] INFO  MailServer - S: 334 VXNlcm5hbWU6
+
+2018-06-16 12:39:03.124 [Thread-8] INFO  MailServer - R: dnp1amF1YmtzbWh2Ymhj
+2018-06-16 12:39:03.128 [Thread-8] INFO  MailServer - S: 535 Please use the authorization code to login
+
+2018-06-16 12:39:03.129 [Thread-8] INFO  MailServer - R: MAIL FROM:<296293760@imbelief.com.cn>
+2018-06-16 12:39:03.129 [Thread-8] INFO  MailServer - S: 502 Error: command not implemented
+
+2018-06-16 12:39:03.130 [Thread-8] INFO  MailServer - R: RCPT TO:<891079011@qq.com>
+2018-06-16 12:39:03.130 [Thread-8] INFO  MailServer - S: 502 Error: command not implemented
+
+2018-06-16 12:39:03.131 [Thread-8] INFO  MailServer - R: RCPT TO:<296293760@imbelief.com.cn>
+2018-06-16 12:39:03.131 [Thread-8] INFO  MailServer - S: 502 Error: command not implemented
+
+2018-06-16 12:39:03.131 [Thread-8] INFO  MailServer - R: DATA
+2018-06-16 12:39:03.131 [Thread-8] INFO  MailServer - S: 502 Error: command not implemented
+
+2018-06-16 12:39:03.160 [Thread-8] INFO  MailServer - R: From:<296293760@imbelief.com.cn>
+2018-06-16 12:39:03.160 [Thread-8] INFO  MailServer - S: 502 Error: command not implemented
+
+2018-06-16 12:39:03.161 [Thread-8] INFO  MailServer - R: To:<891079011@qq.com>
+2018-06-16 12:39:03.161 [Thread-8] INFO  MailServer - S: 502 Error: command not implemented
+
+2018-06-16 12:39:03.161 [Thread-8] INFO  MailServer - R: To:<296293760@imbelief.com.cn>
+2018-06-16 12:39:03.161 [Thread-8] INFO  MailServer - S: 502 Error: command not implemented
+
+2018-06-16 12:39:03.162 [Thread-8] INFO  MailServer - R: Subject:Just a Test
+2018-06-16 12:39:03.162 [Thread-8] INFO  MailServer - S: 502 Error: command not implemented
+
+2018-06-16 12:39:39.669 [Thread-4] INFO  MailServer - S: 220 www.imbelief.com Esmtp Belief Mail Server
+
+2018-06-16 12:39:39.672 [Thread-9] INFO  MailServer - R: HELO 127.0.0.1
+2018-06-16 12:39:39.673 [Thread-9] INFO  MailServer - S: 250 Ok www.imbelief.com
+
+2018-06-16 12:39:39.675 [Thread-9] INFO  MailServer - R: STARTTLS 127.0.0.1
+2018-06-16 12:39:39.675 [Thread-9] INFO  MailServer - S: 502 Error: command not implemented
+
+2018-06-16 12:39:39.676 [Thread-9] INFO  MailServer - R: AUTH LOGIN
+2018-06-16 12:39:39.677 [Thread-9] INFO  MailServer - S: 334 VXNlcm5hbWU6
+
+2018-06-16 12:39:39.734 [Thread-9] INFO  MailServer - R: Mjk2MjkzNzYwQGltYmVsaWVmLmNvbS5jbg==
+2018-06-16 12:39:39.734 [Thread-9] INFO  MailServer - S: 334 VXNlcm5hbWU6
+
+2018-06-16 12:39:39.735 [Thread-9] INFO  MailServer - R: dnp1amF1YmtzbWh2Ymhj
+2018-06-16 12:39:39.745 [Thread-9] INFO  MailServer - S: 235 Authentication successful
+
+2018-06-16 12:39:39.750 [Thread-9] INFO  MailServer - R: MAIL FROM:<296293760@imbelief.com.cn>
+2018-06-16 12:39:39.750 [Thread-9] INFO  MailServer - S: 250 Ok www.imbelief.com
+
+2018-06-16 12:39:39.751 [Thread-9] INFO  MailServer - R: RCPT TO:<891079011@qq.com>
+2018-06-16 12:39:39.752 [Thread-9] INFO  MailServer - S: 250 Ok www.imbelief.com
+
+2018-06-16 12:39:39.791 [Thread-9] INFO  MailServer - R: RCPT TO:<296293760@imbelief.com.cn>
+2018-06-16 12:39:39.792 [Thread-9] INFO  MailServer - S: 250 Ok www.imbelief.com
+
+2018-06-16 12:39:39.794 [Thread-9] INFO  MailServer - R: DATA
+2018-06-16 12:39:39.794 [Thread-9] INFO  MailServer - S: 354 End data with <CR><LF>.<CR><LF>
+
+2018-06-16 12:39:39.831 [Thread-9] INFO  MailServer - R: From:<296293760@imbelief.com.cn>
+2018-06-16 12:39:39.831 [Thread-9] INFO  MailServer - R: To:<891079011@qq.com>
+2018-06-16 12:39:39.831 [Thread-9] INFO  MailServer - R: To:<296293760@imbelief.com.cn>
+2018-06-16 12:39:39.832 [Thread-9] INFO  MailServer - R: Subject:Just a Test
+2018-06-16 12:39:39.832 [Thread-9] INFO  MailServer - R: Date:Sat Jun 16 12:39:39 GMT+08:00 2018
+2018-06-16 12:39:39.832 [Thread-9] INFO  MailServer - R: Content-Type:text/plain;charset="GB2312"
+2018-06-16 12:39:39.833 [Thread-9] INFO  MailServer - R: 
+2018-06-16 12:39:39.833 [Thread-9] INFO  MailServer - R: This email from command line. Cross the GFW, we can reach every corner in the world !
+2018-06-16 12:39:39.833 [Thread-9] INFO  MailServer - R: .
+2018-06-16 12:39:40.387 [Thread-9] INFO  MailServer - S: 250 Ok www.imbelief.com
+
+2018-06-16 12:39:40.387 [Thread-9] INFO  MailServer - R: QUIT
+2018-06-16 12:39:40.387 [Thread-9] INFO  MailServer - S: 221 Bye
+

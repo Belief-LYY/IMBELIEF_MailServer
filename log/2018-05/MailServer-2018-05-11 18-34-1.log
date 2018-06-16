@@ -1,9 +1,0 @@
-2018-05-11 18:34:21.838 [Thread-2] INFO  MailServer - R: USER 296293760@imbelief.com.cn
-2018-05-11 18:34:21.869 [Thread-2] INFO  MailServer - S: 502 Error: command not implemented
-
-2018-05-11 18:34:21.870 [Thread-2] INFO  MailServer - R: PASS vzujaubksmhvbhc
-2018-05-11 18:34:21.870 [Thread-2] INFO  MailServer - S: 502 Error: command not implemented
-
-2018-05-11 18:34:21.871 [Thread-2] INFO  MailServer - R: LIST 
-2018-05-11 18:34:21.871 [Thread-2] INFO  MailServer - S: 502 Error: command not implemented
-

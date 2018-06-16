@@ -1,7 +1,0 @@
-2018-05-11 18:45:00.270 [Thread-4] INFO  MailServer - S: 235 Authentication successful
-
-2018-05-11 18:45:00.276 [Thread-4] INFO  MailServer - S: 502 Error: command not implemented
-
-2018-05-11 18:45:00.277 [Thread-4] INFO  MailServer - R: LIST 
-2018-05-11 18:45:00.277 [Thread-4] INFO  MailServer - S: 502 Error: command not implemented
-

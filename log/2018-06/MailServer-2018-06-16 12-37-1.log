@@ -1,0 +1,47 @@
+2018-06-16 12:37:24.096 [Thread-4] INFO  MailServer - S: 220 www.imbelief.com Esmtp Belief Mail Server
+
+2018-06-16 12:37:24.273 [Thread-7] INFO  MailServer - R: HELO 127.0.0.1
+2018-06-16 12:37:24.278 [Thread-7] INFO  MailServer - S: 250 Ok www.imbelief.com
+
+2018-06-16 12:37:24.280 [Thread-7] INFO  MailServer - R: STARTTLS 127.0.0.1
+2018-06-16 12:37:24.280 [Thread-7] INFO  MailServer - S: 502 Error: command not implemented
+
+2018-06-16 12:37:24.281 [Thread-7] INFO  MailServer - R: AUTH LOGIN
+2018-06-16 12:37:24.282 [Thread-7] INFO  MailServer - S: 334 VXNlcm5hbWU6
+
+2018-06-16 12:37:24.346 [Thread-7] INFO  MailServer - R: Mjk2MjkzNzYwQGltYmVsaWVmLmNvbS5jbg==
+2018-06-16 12:37:24.361 [Thread-7] INFO  MailServer - S: 334 VXNlcm5hbWU6
+
+2018-06-16 12:37:24.362 [Thread-7] INFO  MailServer - R: dnp1amF1YmtzbWh2Ymhj
+2018-06-16 12:37:24.395 [Thread-7] INFO  MailServer - S: 535 Please use the authorization code to login
+
+2018-06-16 12:37:24.396 [Thread-7] INFO  MailServer - R: MAIL FROM:<296293760@imbelief.com.cn>
+2018-06-16 12:37:24.396 [Thread-7] INFO  MailServer - S: 502 Error: command not implemented
+
+2018-06-16 12:37:24.397 [Thread-7] INFO  MailServer - R: RCPT TO:<891079011@qq.com>
+2018-06-16 12:37:24.397 [Thread-7] INFO  MailServer - S: 502 Error: command not implemented
+
+2018-06-16 12:37:24.398 [Thread-7] INFO  MailServer - R: RCPT TO:<296293760@imbelief.com.cn>
+2018-06-16 12:37:24.398 [Thread-7] INFO  MailServer - S: 502 Error: command not implemented
+
+2018-06-16 12:37:24.399 [Thread-7] INFO  MailServer - R: DATA
+2018-06-16 12:37:24.399 [Thread-7] INFO  MailServer - S: 502 Error: command not implemented
+
+2018-06-16 12:37:24.440 [Thread-7] INFO  MailServer - R: From:<296293760@imbelief.com.cn>
+2018-06-16 12:37:24.441 [Thread-7] INFO  MailServer - S: 502 Error: command not implemented
+
+2018-06-16 12:37:24.441 [Thread-7] INFO  MailServer - R: To:<891079011@qq.com>
+2018-06-16 12:37:24.442 [Thread-7] INFO  MailServer - S: 502 Error: command not implemented
+
+2018-06-16 12:37:24.442 [Thread-7] INFO  MailServer - R: To:<296293760@imbelief.com.cn>
+2018-06-16 12:37:24.442 [Thread-7] INFO  MailServer - S: 502 Error: command not implemented
+
+2018-06-16 12:37:24.442 [Thread-7] INFO  MailServer - R: Subject:Just a Test
+2018-06-16 12:37:24.443 [Thread-7] INFO  MailServer - S: 502 Error: command not implemented
+
+2018-06-16 12:37:24.444 [Thread-7] INFO  MailServer - R: Date:Sat Jun 16 12:37:24 GMT+08:00 2018
+2018-06-16 12:37:24.444 [Thread-7] INFO  MailServer - S: 502 Error: command not implemented
+
+2018-06-16 12:37:24.445 [Thread-7] INFO  MailServer - R: Content-Type:text/plain;charset="GB2312"
+2018-06-16 12:37:24.445 [Thread-7] INFO  MailServer - S: 502 Error: command not implemented
+

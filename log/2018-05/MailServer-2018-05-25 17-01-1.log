@@ -1,9 +1,0 @@
-2018-05-25 17:01:06.778 [Thread-5] INFO  MailServer - R: LYY1996*
-2018-05-25 17:01:06.785 [Thread-5] INFO  MailServer - S: 535 Please use the authorization code to login
-
-2018-05-25 17:01:17.256 [Thread-5] INFO  MailServer - R: auth login
-2018-05-25 17:01:17.256 [Thread-5] INFO  MailServer - S: 334 VXNlcm5hbWU6
-
-2018-05-25 17:01:21.438 [Thread-5] INFO  MailServer - R: 296293760
-2018-05-25 17:01:21.442 [Thread-5] INFO  MailServer - S: 334 VXNlcm5hbWU6
-

@@ -1,6 +1,0 @@
-2018-05-16 22:17:24.295 [Thread-2] INFO  MailServer - R: V
-2018-05-16 22:17:34.560 [Thread-2] INFO  MailServer - S: 535 Please use the authorization code to login
-
-2018-05-16 22:17:34.561 [Thread-2] INFO  MailServer - R: null
-2018-05-16 22:17:34.561 [Thread-2] INFO  MailServer - S: 221 Bye
-
